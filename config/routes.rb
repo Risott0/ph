@@ -21,5 +21,8 @@ Rails.application.routes.draw do
   get 'manage-listing/:id/calendar' => 'listings#calendar', as: 'manage_listing_calendar'
   get 'manage-listing/:id/bankaccount' => 'listings#bankaccount', as: 'manage_listing_bankaccount'
   get 'manage-listing/:id/publish' => 'listings#publish', as: 'manage_listing_publish'
+
+  get '/auth/:provider/callback',    to: 'users#create',       as: :auth_callback
+  get '/auth/failure',               to: 'users#auth_failure', as: :auth_failure
 end
 
